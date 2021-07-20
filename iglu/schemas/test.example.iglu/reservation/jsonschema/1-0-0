@@ -19,12 +19,10 @@
             "type": "string"
         },
         "since": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
         },
         "until": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
         }
     },
     "required": ["snowplow_name", "first_name", "last_name"],
