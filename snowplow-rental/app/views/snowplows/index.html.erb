@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Snowplow Rental</h1>
+
+<p>
+  Please choose a snowplow to rent.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @snowplows.each do |snowplow| %>
+      <tr>
+        <td><%= link_to(image_tag(snowplow.image_path, width: '200'), snowplow) %></td>
+        <th><%= snowplow.name %></th>
+        <td><%= snowplow.description %></td>
+        <td><%= link_to 'Show', snowplow %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

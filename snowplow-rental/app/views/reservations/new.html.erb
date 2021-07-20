@@ -1,0 +1,6 @@
+<h1><%= @snowplow.name %></h1>
+<h2>New Reservation</h2>
+
+<%= render 'form', snowplow: @snowplow, reservation: @reservation %>
+
+<%= link_to 'Back', snowplow_path(@snowplow) %>

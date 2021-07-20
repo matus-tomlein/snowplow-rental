@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @snowplow.name %></h1>
+<h2>Reservation</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @reservation.first_name %>
+  <%= @reservation.last_name %>
+</p>
+
+<p>
+  <strong>Since:</strong>
+  <%= @reservation.since %>
+</p>
+
+<p>
+  <strong>Until:</strong>
+  <%= @reservation.until %>
+</p>
+
+<%= link_to 'Edit', edit_snowplow_reservation_path(@snowplow, @reservation) %> |
+<%= link_to 'Back', snowplow_path(@snowplow) %>

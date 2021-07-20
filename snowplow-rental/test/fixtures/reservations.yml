@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  snowplow: one
+  first_name: MyString
+  last_name: MyString
+  since: 2021-07-19 15:14:21
+  until: 2021-07-19 15:14:21
+
+two:
+  snowplow: two
+  first_name: MyString
+  last_name: MyString
+  since: 2021-07-19 15:14:21
+  until: 2021-07-19 15:14:21
