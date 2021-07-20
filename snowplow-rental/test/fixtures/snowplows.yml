@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
+  name: Sidewalk
+  description: Sidewalk snowplow
+  image_path: snowplows/sidewalk.jpg
 
 two:
-  name: MyString
-  description: MyText
+  name: Truck
+  description: Large snowplow
+  image_path: snowplows/truck.jpg

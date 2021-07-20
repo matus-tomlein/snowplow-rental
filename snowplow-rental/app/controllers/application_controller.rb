@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     subject = SnowplowTracker::Subject.new
     subject.set_domain_user_id(snowplow_domain_userid)
     tracker = SnowplowTracker::Tracker.new(@snowplow_emitter, subject, nil, 'snowplow-rental', false)
-    tracker.set_useragent(request.user_agent)
+    tracker.set_useragent(request.user_agent) unless request.user_agent.nil?
     tracker
   end
 
@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_snowplow_emitter
-    @snowplow_emitter = SnowplowTracker::Emitter.new('micro:9090')
+    @snowplow_emitter = SnowplowTracker::Emitter.new(Rails.application.config.snowplow_micro_url)
   end
 end

@@ -3,6 +3,7 @@
 class Reservation < ApplicationRecord
   belongs_to :snowplow
 
+  validates :snowplow, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :since, presence: true

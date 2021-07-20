@@ -50,7 +50,7 @@ class ReservationsController < ApplicationController
   end
 
   def track_page_view
-    if defined? @reservation
+    if defined?(@reservation) && !@reservation.id.nil?
       snowplow_tracker.track_page_view(request.url, nil, nil, [@snowplow.to_snowplow_json, @reservation.to_snowplow_json])
     else
       snowplow_tracker.track_page_view(request.url, nil, nil, [@snowplow.to_snowplow_json])
