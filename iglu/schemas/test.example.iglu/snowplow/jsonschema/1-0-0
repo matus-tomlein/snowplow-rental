@@ -14,7 +14,7 @@
         },
         "description": {
             "type": "string"
-        },
+        }
     },
     "required": ["name"],
     "additionalProperties": false
