@@ -11,7 +11,7 @@ Server tracked events and actions are enhanced with additional context including
 
 You can see a demo of the app and tracked events in Snowplow Micro in this short video: https://youtu.be/VrUGobWPa7Q
 
-## Tracker Snowplow Analytics events
+## Tracked Snowplow Analytics events
 
 There are trackers both client and server side that track the following actions and events:
 
