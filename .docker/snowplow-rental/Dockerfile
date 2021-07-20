@@ -20,5 +20,8 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
+# Run migrations and seeds
+RUN ["bundle", "exec", "rails", "db:setup"]
+
 # Start app server.
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
