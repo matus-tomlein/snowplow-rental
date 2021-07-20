@@ -16,6 +16,7 @@ class ReservationsController < ApplicationController
     @reservation = @snowplow.reservations.new(reservation_params)
 
     if @reservation.save
+      track_struct_event('create')
       redirect_to [@snowplow, @reservation], notice: 'Reservation was successfully created.'
     else
       render :new, status: :unprocessable_entity
@@ -24,6 +25,7 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_params)
+      track_struct_event('update')
       redirect_to [@snowplow, @reservation], notice: 'Reservation was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
@@ -31,6 +33,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    track_struct_event('delete')
     @reservation.destroy
     redirect_to @snowplow, notice: 'Reservation was successfully destroyed.'
   end
@@ -55,5 +58,16 @@ class ReservationsController < ApplicationController
     else
       snowplow_tracker.track_page_view(request.url, nil, nil, [@snowplow.to_snowplow_json])
     end
+  end
+
+  def track_struct_event(action)
+      snowplow_tracker.track_struct_event(
+        'reservations', # category
+        action, # action
+        nil, # label
+        nil, # property
+        nil, # value
+        [@snowplow.to_snowplow_json, @reservation.to_snowplow_json] # context
+      )
   end
 end
